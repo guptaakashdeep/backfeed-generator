@@ -1,0 +1,15 @@
+exposure_feed:
+  tmp_location: s3://bucket-{aws_acct_id}-processed-data/backfeed/temp
+  feed_location: s3://bucket-{aws_acct_id}-curated-data/backfeed/final
+  sqls:
+    sql1:
+      feed_intra_day_sales: select * from db.table1 where day_rk = '20231110' and dep='sales'
+    sql2:
+      feed_intra_day_analytics: select * from db.table1 where day_rk = '20231111' and dep='analytics'
+    sql3:
+      feed_intra_day_de: select * from db.table1 where day_rk = '20231112' and dep='de'
+    sql4:
+      feed_intra_day_ds: select * from db.table1 where day_rk = '20231113' and dep='ds'
+  feed_table_db: db
+  table_name: table1
+  delimiter: "|"
